@@ -35,7 +35,7 @@ install_nuxt
 # Install packages
 docker-compose -f docker-compose.dev.yml run --rm --no-deps \
   --user "$(id -u)":"$(id -g)" app \
-  yarn add vuetify \
+  yarn add vuetify@next sass vite-plugin-vuetify @fortawesome/fontawesome-free @mdi/font @pinia/nuxt @nuxtjs/tailwindcss @tailwindcss/forms @headlessui/vue \
   yarn install
 
 # Start containers

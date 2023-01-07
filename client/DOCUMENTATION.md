@@ -54,7 +54,7 @@ docker-compose -f docker-compose.dev.yml down
 
 To fetch data from the Laravel API, you have to use different endpoints when requesting data from the browser and during the SSR process from the Node server instance.
 
-The `.env` file already contains those endpoints, so you can use the following `nuxt.config.ts` file:
+The `.env` file already contains those endpoints, so you can use the following `nuxt.config.js` file:
 
 ```ts
 import { defineNuxtConfig } from 'nuxt3'

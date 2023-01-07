@@ -63,6 +63,10 @@ prune:
 #-----------------------------------------------------------
 
 # Enter the app container
+sh:
+	docker exec -u root -it client-app-1 sh
+
+# Enter the app container
 app.bash:
 	docker-compose -f ${COMPOSE_FILE} exec app /bin/bash
 
