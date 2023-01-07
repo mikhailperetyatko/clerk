@@ -9,10 +9,9 @@ export default defineNuxtConfig({
             noExternal: ["vuetify"] // add the vuetify vite plugin
         },
     },
-    ssr: false,
 
     modules: [
-        // "@pinia/nuxt",
+        "@pinia/nuxt",
         "@nuxtjs/tailwindcss",
         // this adds the vuetify vite plugin
         async (options, nuxt) => {
@@ -26,15 +25,11 @@ export default defineNuxtConfig({
 
     runtimeConfig: {
         public: {
-            backendUrl: "http://localhost:8000",
-            frontendUrl: "http://localhost:3000",
+            backendUrl: "http://31.44.3.108:8000",
+            frontendUrl: "http://31.44.3.108:3000",
         },
     },
     imports: {
         dirs: ["./utils"],
     },
-
-    alias: {
-        pinia: "/node_modules/@pinia/nuxt/dist/pinia.mjs"
-    }
 });

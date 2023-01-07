@@ -1,6 +1,12 @@
 <script setup lang="ts">
-definePageMeta({ middleware: ["auth"] });
 import { ref } from 'vue';
+import { useCounterStore } from '../stores/test.js'
+
+definePageMeta({ middleware: ["auth"] });
+const store = useCounterStore();
+store.increment();
+store.increment();
+console.log(store.doubleCount);
 
 const dialog = ref(null);
 </script>
