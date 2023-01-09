@@ -44,7 +44,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function projects(): hasMany
+    public function projectUsers(): hasMany
     {
         return $this->hasMany(ProjectUser::class, 'user_id')
             ->with(['privileges', 'project'])
