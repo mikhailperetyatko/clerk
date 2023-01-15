@@ -1,14 +1,20 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import { useCounterStore } from '../stores/test.js'
+import { ref, onMounted, watch } from 'vue';
+import { useProjectStore } from '../stores/project.js'
 
 definePageMeta({ middleware: ["auth"] });
-const store = useCounterStore();
-store.increment();
-store.increment();
-console.log(store.doubleCount);
 
-const dialog = ref(null);
+const projectStore = useProjectStore();
+
+onMounted(() => {
+    projectStore.addAction({});
+    watch(
+        () => projectStore.addIsError,
+        (value) => console?.log(value, projectStore.addError),
+        { immediate: true }
+    );
+});
+
 </script>
 
 <template>
@@ -19,7 +25,7 @@ const dialog = ref(null);
 
     <template #header>
       <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        Dashboard
+        Dashboard222
       </h2>
     </template>
 
@@ -32,29 +38,5 @@ const dialog = ref(null);
         </div>
       </div>
     </div>
-      <v-switch label="Switch"></v-switch>
-      <div class="text-center">
-          <v-dialog
-              v-model="dialog"
-          >
-              <template v-slot:activator="{ props }">
-                  <v-btn
-                      color="primary"
-                      v-bind="props"
-                  >
-                      Open Dialog
-                  </v-btn>
-              </template>
-
-              <v-card>
-                  <v-card-text>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  </v-card-text>
-                  <v-card-actions>
-                      <v-btn color="primary" block @click="dialog = false">Close Dialog</v-btn>
-                  </v-card-actions>
-              </v-card>
-          </v-dialog>
-      </div>
   </NuxtLayout>
 </template>

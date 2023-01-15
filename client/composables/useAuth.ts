@@ -86,3 +86,14 @@ export const fetchCurrentUser = async () => {
     throw error;
   }
 };
+
+export const testUser = async () => {
+    try {
+        return await $larafetch<User>("/api/project/1", {
+            redirectIfNotAuthenticated: false,
+        });
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+};
